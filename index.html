@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Uploader</title>
+  <style>
+    #file-container {
+      margin-top: 10px;
+    }
+
+    .file-wrapper {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .file-name {
+      margin-right: 10px;
+    }
+
+    .delete-button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    #selected-file-count {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" id="file-input" multiple>
+  <div id="file-container"></div>
+  <div id="selected-file-count">Selected Files: 0</div>
+
+  <script>
+    const selectedFiles = [];
+    const selectedFileCountElement = document.getElementById('selected-file-count');
+    const fileContainer = document.getElementById('file-container');
+
+    document.getElementById('file-input').addEventListener('change', handleFileSelect);
+
+    function handleFileSelect(event) {
+      const newFiles = event.target.files;
+
+      for (let i = 0; i < newFiles.length; i++) {
+        const file = newFiles[i];
+        const fileWrapper = document.createElement('div');
+        fileWrapper.className = 'file-wrapper';
+
+        const fileNameElement = document.createElement('div');
+        fileNameElement.className = 'file-name';
+        fileNameElement.innerText = file.name;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'delete-button';
+        deleteButton.innerText = 'Delete';
+        deleteButton.addEventListener('click', function() {
+          fileContainer.removeChild(fileWrapper);
+          removeFromSelectedFiles(file);
+          updateSelectedFileCount();
+        });
+
+        fileWrapper.appendChild(fileNameElement);
+        fileWrapper.appendChild(deleteButton);
+
+        fileContainer.appendChild(fileWrapper);
+        addToSelectedFiles(file);
+        updateSelectedFileCount();
+      }
+    }
+
+    function addToSelectedFiles(file) {
+      selectedFiles.push(file);
+    }
+
+    function removeFromSelectedFiles(file) {
+      const index = selectedFiles.indexOf(file);
+      if (index !== -1) {
+        selectedFiles.splice(index, 1);
+      }
+    }
+
+    function updateSelectedFileCount() {
+      selectedFileCountElement.innerText = `Selected Files: ${selectedFiles.length}`;
+    }
+  </script>
+</body>
+</html>

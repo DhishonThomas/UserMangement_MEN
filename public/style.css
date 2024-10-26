@@ -1,0 +1,24 @@
+
+        body {
+            background-image: url('images4.jpg'); /* Replace 'your-image.jpg' with the path to your image file */
+            background-size: cover; /* Optional: Adjust the background size to your liking */
+        }
+
+        /* Add your existing CSS for the #hai element or other styles here */
+        #hai {
+            background-color: #6DB3F2;
+            color: rgb(5, 45, 6);
+        }
+        #HAI1 h1{
+            font-size: 40px;
+        }
+        #HAI1 p{
+            font-size: 30px;
+        }
+        #HAI1 button{
+            background-color: aquamarine;
+            border: none;
+            border-radius: 5px;
+        }
+
+ 
