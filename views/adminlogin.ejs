@@ -20,15 +20,16 @@ rel="stylesheet"
 />
 
 <style>
-.gradient-custom {
-/* fallback for old browsers */
-background: #accb11;
-
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+body{
+  background-image: url('https://static.vecteezy.com/system/resources/previews/001/223/810/non_2x/dark-wooden-textured-panels-free-photo.jpg'); /* Your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating */
+            background-attachment: fixed; /* Keep the background fixed for a parallax effect */
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            height: 100vh; /* Full height of the viewport */
+            margin: 0;
 }
 
 </style>
@@ -47,11 +48,11 @@ window.onpopstate = function(event) {
 <body>
 
   <form method="post" action="/adminlogin">
-  <section class="vh-100 gradient-custom">
+  <section class="vh-100">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card bg-blue text-dark" style="border-radius: 1rem;">
+          <div class="card bg-blue text-dark" style="border-radius: 1rem; background-image: url('https://img.freepik.com/free-photo/light-brown-wooden-textured-background_53876-75016.jpg');">
             <div class="card-body p-5 text-center">
   
               <div class="mb-md-5 mt-md-4 pb-5">
@@ -62,12 +63,12 @@ window.onpopstate = function(event) {
                 <p class="text-black mb-5">Admin enter your login and password!</p>
   
                 <div class="form-outline form-black mb-4">
-                  <input type="text" id="username" name="username" class="form-control form-control-lg" />
+                  <input type="text" id="username" name="username" class="form-control form-control-lg" style="background-color: rgb(223, 218, 218);" />
                   <label class="form-label" for="username" >AdminID</label>
                 </div>
   
                 <div class="form-outline form-black mb-4">
-                  <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                  <input type="password" id="password" name="password" class="form-control form-control-lg" style="background-color: rgb(223, 218, 218);" />
                   <label class="form-label" for="password">Password</label>
                 </div>
                 <!-- <p><%= message %></p> -->

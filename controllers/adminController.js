@@ -8,13 +8,13 @@ const adminController = {
         try {
             const useradmin = await Admin.findOne({ username });
 
-            // const hashPasswordq=await bcrypt.hash(password,10);
-            // const newUsers = new Admin({
-            //     username,
-            //     password:hashPasswordq,
-            // });
+            const hashPasswordq=await bcrypt.hash(password,10);
+            const newUsers = new Admin({
+                username,
+                password:hashPasswordq,
+            });
 
-            // await newUsers.save();
+            await newUsers.save();
 
             if (useradmin && (await bcrypt.compare(password, useradmin.password))) {
                 req.session.isAdminAuthenticated = true;
@@ -137,8 +137,10 @@ adminsearch:async (req, res) => {
     console.log(searchTerm);
 
     try {
-        const users = await User.find({ $text: { $search: searchTerm } });
-        console.log(users);
+        const users = await User.find({
+            username: { $regex: searchTerm, $options: 'i' }
+          });
+                  console.log(users);
         res.render('adminhome', { users,searchTerm});
     } catch (error) {
  console.error(error);
