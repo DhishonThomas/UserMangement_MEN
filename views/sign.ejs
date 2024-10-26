@@ -31,15 +31,20 @@
 
 
 <style>
-.gradient-custom {
-/* fallback for old browsers */
-background: #6a11cb;
+body{
+  background-image: url('https://static.vecteezy.com/system/resources/previews/001/223/810/non_2x/dark-wooden-textured-panels-free-photo.jpg'); /* Your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating */
+            background-attachment: fixed; /* Keep the background fixed for a parallax effect */
+            font-family: 'Roboto', sans-serif;
+            height: 100vh; /* Full height of the viewport */
+            margin: 0;
+}
 
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+.bgclour{
+  background: style="background-color: rgb(223, 218, 218);";
+  background-color: rgb(223, 218, 218);
 }
 
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
@@ -74,7 +79,8 @@ top: 13px;
         <div class="container py-5 h-100">
           <div class="row justify-content-center align-items-center h-100">
             <div class="col-12 col-lg-9 col-xl-7">
-              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;background-image: url('https://img.freepik.com/free-photo/light-brown-wooden-textured-background_53876-75016.jpg');">
+                
                 <div class="card-body p-4 p-md-5">
                   <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
                   
@@ -89,13 +95,13 @@ top: 13px;
 
 
                         <div class="form-outline mb-3">
-                            <input type="text" id="firstName" class="form-control form-control-lg" pattern="^[^\s]+$"  name="firstname" required/>
-                            <label class="form-label" for="firstName">First Name</label>
+                            <input type="text" id="firstName" class="form-control form-control-lg" pattern="^[^\s]+$" style="background-color: rgb(223, 218, 218);" name="firstname" required/>
+                            <label class="form-label" style="color: black;" for="firstName">First Name</label>
                         </div>
 
                         <div class="form-outline mb-3">
-                            <input type="text" id="username" class="form-control form-control-lg" pattern="^[^\s]+$"    name="username" required/>
-                            <label class="form-label" for="username">Username</label>
+                            <input type="text" id="username" class="form-control form-control-lg" style="background-color: rgb(223, 218, 218);" pattern="^[^\s]+$"    name="username" required/>
+                            <label class="form-label" style="color: black;" for="username">Username</label>
                         </div>
                                         <!-- <p><%= message %></p> -->
 
@@ -106,14 +112,14 @@ top: 13px;
                       <div class="col-md-6 mb-4">
       
                         <div class="form-outline mb-3">
-                          <input type="text" id="lastName" class="form-control form-control-lg" name="lastname" pattern="^[^\s]+$"   required/>
-                          <label class="form-label" for="lastName">Last Name</label>
+                          <input type="text" id="lastName" class="form-control form-control-lg" style="background-color: rgb(223, 218, 218);" name="lastname" pattern="^[^\s]+$"   required/>
+                          <label class="form-label" style="color: black;" for="lastName">Last Name</label>
                         </div>
 
 
                         <div class="form-outline mb-3">
-                            <input type="text" id="password" class="form-control form-control-lg" name="password" pattern="^[^\s]+$"  required/>
-                            <label class="form-label" for="password">Password</label>
+                            <input type="text" id="password" class="form-control form-control-lg" style="background-color: rgb(223, 218, 218);" name="password" pattern="^[^\s]+$"  required/>
+                            <label class="form-label" style="color: black;" for="password">Password</label>
                         </div>
       
                       </div>
@@ -123,8 +129,8 @@ top: 13px;
                       <div class="col-md-6 mb-4 d-flex align-items-center">
       
                         <div class="form-outline w-100">
-                            <input type="date" class="form-control form-control-lg" id="birthdayDate" placeholder="dd-mm-yyyy" name="birth" required />
-                            <label for="birthdayDate" class="form-label">Birthday (dd-mm-yyyy)</label>
+                            <input type="date" class="form-control form-control-lg" style="background-color: rgb(223, 218, 218);" id="birthdayDate" placeholder="dd-mm-yyyy" name="birth" required />
+                            <label for="birthdayDate" style="color: black;" class="form-label">Birthday (dd-mm-yyyy)</label>
                           </div>
                           
                           
@@ -136,19 +142,19 @@ top: 13px;
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="gender" id="femaleGender"
                             value="female" />
-                          <label class="form-check-label" for="femaleGender">Female</label>
+                          <label class="form-check-label" style="color: black;" for="femaleGender">Female</label>
                         </div>
       
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="gender" id="maleGender"
                             value="male" />
-                          <label class="form-check-label" for="maleGender">Male</label>
+                          <label class="form-check-label" style="color: black;" for="maleGender">Male</label>
                         </div>
       
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="gender" id="otherGender"
                             value="other" />
-                          <label class="form-check-label" for="otherGender">Other</label>
+                          <label class="form-check-label" style="color: black;" for="otherGender">Other</label>
                         </div>
       
                       </div>
@@ -158,8 +164,8 @@ top: 13px;
                       <div class="col-md-6 mb-4 pb-2">
       
                         <div class="form-outline">
-                            <input type="email" id="textemailX" class="form-control form-control-lg" pattern="[a-zA-Z0-9._%+-]+@gmail\.com"  name="email" required />
-                            <label class="form-label" for="textemailX">Email (e.g., example@gmail.com)</label>
+                            <input type="email" id="textemailX" class="form-control form-control-lg" style="background-color: rgb(223, 218, 218);" pattern="[a-zA-Z0-9._%+-]+@gmail\.com"  name="email" required />
+                            <label class="form-label" style="color: black;" for="textemailX">Email (e.g., example@gmail.com)</label>
                           </div>
                           
 
@@ -169,8 +175,8 @@ top: 13px;
 
                       <div class="col-md-6 mb-4 pb-2">
                         <div class="form-outline">
-                            <input type="tel" id="phoneNumber" class="form-control form-control-lg" pattern="[0-9]" name="phonenumber" required />
-                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                            <input type="tel" id="phoneNumber" class="form-control form-control-lg" style="background-color: rgb(223, 218, 218);" pattern="[0-9]" name="phonenumber" required />
+                            <label class="form-label" style="color: black;" for="phoneNumber">Phone Number</label>
                           </div>
 
                 </div>
@@ -183,8 +189,8 @@ top: 13px;
 
 
                         <div class="form-outline" id="otpField" style="display: none;">
-                            <input type="text" id="otpInput" class="form-control form-control-lg" name="otp" required />
-                            <label class="form-label" for="otpInput">Enter OTP</label>
+                            <input type="text" id="otpInput" class="form-control form-control-lg" style="background-color: rgb(223, 218, 218);" name="otp" required />
+                            <label class="form-label" style="color: black;" for="otpInput">Enter OTP</label>
                         </div>
                         
                       </div>

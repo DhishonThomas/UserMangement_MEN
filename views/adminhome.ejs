@@ -8,149 +8,169 @@
     <title>Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
+        body {
+            background-image: url('https://external-preview.redd.it/X8sbOfKSqHJQmKt6wuzGGtCrV2ADHcgRNn3RWDFMfOQ.jpg?width=1080&crop=smart&auto=webp&s=7fb8fa7b51ae8998ac0d30d72c629f5e5a3931db');
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating */
+            background-attachment: fixed; /* Keep the background fixed for a parallax effect */
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            height: 100vh; /* Full height of the viewport */
+            margin: 0;
+        }
 
-    body {
-    background-color: rgb(18, 57, 45);
-    }
+        .mainbox {
+            margin: 50px auto; /* Center the box */
+            max-width: 900px; /* Limit the maximum width */
+            background-image: url('https://img.freepik.com/premium-photo/dark-wood-texture-background-wood-grain-texture-interior-exterior-design_896686-20703.jpg');
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating */
+            background-size: cover; /* Cover the entire box */
+            color: #ffffff;
+            padding: 20px; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-.mainbox {
-    margin: 80px;
-    background-color: rgb(162, 213, 213); 
-    padding: 20px; 
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        h1 {
+            margin-bottom: 20px; /* Space below heading */
+        }
 
-.user-container {
-    margin-bottom: 10px;
-}
+        .form-container {
+            margin-top: 30px; /* Space above form */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            padding: 20px; /* Padding for the form */
+            border-radius: 10px; /* Rounded corners */
+        }
 
-.user-link {
-    font-size: 20px;
-}
+        .user-link {
+            font-size: 20px;
+        }
 
-a.uname {
-    text-decoration: none;
-    font-family: sans-serif;
-    color: black;
-    font-weight: 600;
-}
+        a.uname {
+            text-decoration: none;
+            font-family: sans-serif;
+            color: black;
+            font-weight: 600;
+        }
 
+        table {
+            margin-top: 30px; /* Space above table */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .mainbox {
+                margin: 20px; /* Reduce margin for smaller screens */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="mainbox">
-    <h1 class="mt-3">Welcome to the Admin Dashboard</h1>
-    <button onclick="location.href='/adminlogout'" class="btn btn-primary mr-auto">Logout</button>
+        <h1 class="text-center">Welcome to the Admin Dashboard</h1>
+        <div class="text-end">
+            <button onclick="location.href='/adminlogout'" class="btn btn-danger">Logout</button>
+        </div>
 
-
-    <!-- Search box for users -->
-    <form action="/admin/search-users" method="get">
-        <div class="form-group mt-3">
-            <label for="search">Search Users:</label>
-            <div class="input-group">
-                <input type="text" class="form-control" id="search" name="search" required>
-                <div class="input-group-append">
+        <!-- Search box for users -->
+        <form action="/admin/search-users" method="get">
+            <div class="form-group mt-3">
+                <label for="search">Search Users:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="search" name="search" required>
                     <button class="btn btn-primary" type="submit">Search</button>
                 </div>
             </div>
-        </div>
-    </form>
-    
-    <!-- Form to create a new user -->
-
-    <div class="container mt-5 form-container">
-        <h2 class="mb-4">Create a New User</h2>
-    
-        <form action="/admin/create-user" method="post" id="formblock">
-            <div class="row mb-3">
-                <div class="col">
-                    <label for="firstname">First Name:</label>
-                    <input type="text" class="form-control" id="firstname" name="firstname" required>
-                </div>
-                <div class="col">
-                    <label for="lastname">Last Name:</label>
-                    <input type="text" class="form-control" id="lastname" name="lastname" required>
-                </div>
-            </div>
-    
-            <div class="row mb-3">
-                <div class="col">
-                    <label for="username">Username:</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
-                    
-                    <span id="usernameError" style="color: red;"></span><br>
-                </div>
-               
-                <div class="col">
-                    <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-            </div>
-    
-            <div class="row mb-3">
-                <div class="col">
-                    <label for="birth">Birthday:</label>
-                    <input  type="date" class="form-control" id="birth" name="birth" required>
-                </div>
-                <div class="col">
-                    <label for="gender">Gender:</label>
-                    <input type="text" class="form-control" id="gender" name="gender" required>
-                </div>
-            </div>
-    
-            <div class="row mb-3">
-                <div class="col">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="col">
-                    <label for="phonenumber">Phone Number:</label>
-                    <input type="text" class="form-control" id="phonenumber" name="phonenumber" required>
-                </div>
-            </div>
-    
-            <button type="submit" class="btn btn-primary">Create User</button>
         </form>
-
-
-    <!-- Display existing users -->
-    <div class="mt-3">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Username</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% users.forEach(user => { %>
-                    <tr>
-                        <!-- Display the username -->
-                        <td>
-                            <a href="/admin/user/<%= user._id %>" class="uname"><%= user.username %></a>
-                        </td>
-                        <!-- Edit and Delete buttons -->
-                        <td>
-                            <a class="btn btn-warning" href="/admin/edit/<%= user._id %>">Edit</a>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger" href="/admin/delete/<%= user._id %>" >Delete</a>
-                        </td>
-                    </tr>
-                <% }); %>
-            </tbody>
-        </table>
-    </div>
+        
+        <!-- Form to create a new user -->
+        <div class="form-container">
+            <h2 class="text-center mt-4 mb-4">Create a New User</h2>
+            <form action="/admin/create-user" method="post" id="formblock">
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="firstname">First Name:</label>
+                        <input type="text" class="form-control" id="firstname" name="firstname" required>
+                    </div>
+                    <div class="col">
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname" required>
+                    </div>
+                </div>
     
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                        <span id="usernameError" style="color: red;"></span>
+                    </div>
+                    <div class="col">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                </div>
+    
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="birth">Birthday:</label>
+                        <input type="date" class="form-control" id="birth" name="birth" required>
+                    </div>
+                    <div class="col">
+                        <label for="gender">Gender:</label>
+                        <input type="text" class="form-control" id="gender" name="gender" required>
+                    </div>
+                </div>
+    
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="col">
+                        <label for="phonenumber">Phone Number:</label>
+                        <input type="text" class="form-control" id="phonenumber" name="phonenumber" required>
+                    </div>
+                </div>
+    
+                <button type="submit" class="btn btn-primary">Create User</button>
+            </form>
+        </div>
 
-
-</div>
+        <!-- Display existing users -->
+        <div class="mt-3">
+            <h2 class="text-center">Existing Users</h2>
+            <table class="table table-striped text-white">
+                <thead>
+                    <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <!-- Display the username -->
+                            <td>
+                                <a href="/admin/user/<%= user._id %>" class="text-white fw-bold"><%= user.username %></a>
+                            </td>
+                            <!-- Edit and Delete buttons -->
+                            <td>
+                                <a class="btn btn-warning" href="/admin/edit/<%= user._id %>">Edit</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" href="/admin/delete/<%= user._id %>">Delete</a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>
 
