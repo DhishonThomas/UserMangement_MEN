@@ -1,0 +1,29 @@
+// const { execSync } = require("child_process");
+
+// function getRandomDate(start, end) {
+//     const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+//     return date.toISOString().replace("T", " ").split(".")[0]; 
+// }
+
+// const startDate = new Date("2023-10-01");
+// const endDate = new Date("2024-07-31");
+
+// const numberOfCommits = 100;
+
+// const dates = Array.from({ length: numberOfCommits }, () => getRandomDate(startDate, endDate));
+
+// dates.forEach((date, index) => {
+//     try {
+//         execSync(`echo "Random demo commit ${index + 1}" >> demo.txt`);
+
+//         execSync("git add demo.txt");
+
+//         execSync(`GIT_AUTHOR_DATE="${date}" GIT_COMMITTER_DATE="${date}" git commit -m "Random demo commit ${index + 1}"`);
+
+//         console.log(`Commit ${index + 1} created with date: ${date}`);
+//     } catch (error) {
+//         console.error(`Failed to create commit ${index + 1}:`, error);
+//     }
+// });
+
+// console.log("All random demo commits created!");
