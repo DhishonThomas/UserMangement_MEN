@@ -252,3 +252,45 @@ console.log('anas'+123);
 //     },7000)
 
 
+// chatbot.js
+// const readline = require('readline');
+
+// // Setup readline interface for input/output in the console
+// const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
+
+// // Define some basic responses
+// const responses = {
+//     "hello": "Hello! How can I help you today?",
+//     "how are you": "I'm just a bot, but thanks for asking!",
+//     "what is your name": "I’m your friendly chatbot assistant!",
+//     "bye": "Goodbye! Have a great day!",
+//     "default": "Sorry, I didn’t understand that. Can you rephrase?"
+// };
+
+// // Function to get response based on input
+// function getResponse(input) {
+//     const normalizedInput = input.toLowerCase();
+//     return responses[normalizedInput] || responses["default"];
+// }
+
+// // Main function to run the chatbot
+// function chat() {
+//     rl.question("You: ", (userInput) => {
+//         const botResponse = getResponse(userInput);
+//         console.log(`Bot: ${botResponse}`);
+//         if (userInput.toLowerCase() === "bye") {
+//             rl.close();
+//         } else {
+//             chat();  // Continue chatting
+//         }
+//     });
+// }
+
+// console.log("Welcome to Chatbot! Type 'bye' to exit.");
+// chat();
+
+
+
